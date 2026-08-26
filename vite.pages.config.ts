@@ -6,7 +6,7 @@ const projectRoot = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   root: fileURLToPath(new URL("./github-pages-src", import.meta.url)),
-  base: "/",
+  base: "/portfolio2026/",
   publicDir: fileURLToPath(new URL("./public", import.meta.url)),
   plugins: [react()],
   build: {
