@@ -379,7 +379,7 @@ export default function Home() {
         <div className="footer-art" role="img" aria-label="小王子站在星球上，身边是星星与行星" />
         <div className="footer-copy">
           <p className="chapter">LAST PAGE · CONTACT</p>
-          <h2>如果你对我的经历感兴趣/思考如何打造AI-Native的工作方式，欢迎来畅聊🤝</h2>
+          <h2>如果你对我的经历感兴趣/正在尝试打造AI-Native的工作方式，欢迎来畅聊🤝</h2>
           <p>姚岩岩 · AI 产品 / 策略产品 / 用户产品</p>
           <div className="contact-links">
             <a href="mailto:yanyanyao6049@163.com"><span>Email</span><strong>yanyanyao6049@163.com ↗</strong></a>
