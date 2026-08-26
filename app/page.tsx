@@ -52,8 +52,8 @@ const spreads: Spread[] = [
           text: "背景：冷启物料与低 Load 人群匹配效率低。动作：将相似分接入精排，用 3 组小流量实验检验覆盖、重合与增量转化。分析：首版覆盖率仅 3.98%，51.51% 物料原系统已可通过，未带来实际消耗增量；因此停止调阈值，转向 eCPC 出价因子方案。",
         },
         {
-          label: "UE 实验复盘",
-          text: "作为算法联络与实验分析角色，识别到多组方案“曝光增长但消耗不跟随、时长偏负”，判断旧机制放大了低质量边际流量，推动重审优化目标。",
+          label: "潮汐 Load",
+          text: "背景：发现页实际 Load 水位长期低于目标，历史门槛策略冗余且互相干扰。动作：先统一收敛为精排固定 CPM 门槛策略；针对分时 Load 波动引入 PID 动态调控，保障分天 Load 达到 11.5%；进一步基于分时曝光—消耗兑换效率差异，探索分周维度的潮汐 Load，为高效率时段腾挪曝光空间。结果：发现页整体消耗 +7%。",
         },
       ],
     },
@@ -383,7 +383,7 @@ export default function Home() {
           <p>姚岩岩 · AI 产品 / 策略产品 / 用户产品</p>
           <div className="contact-links">
             <a href="mailto:yanyanyao6049@163.com"><span>Email</span><strong>yanyanyao6049@163.com ↗</strong></a>
-            <a href="tel:+8618079018389"><span>Phone</span><strong>180-7901-8389</strong></a>
+            <a href="tel:+8617310719609"><span>Phone</span><strong>173-1071-9609</strong></a>
             <a href="https://github.com/celia099" target="_blank" rel="noreferrer"><span>GitHub</span><strong>github.com/celia099 ↗</strong></a>
             <a href="https://celia099.github.io/Everything-Everywhere-All-at-Once/" target="_blank" rel="noreferrer"><span>Featured project</span><strong>Universe Leap ↗</strong></a>
           </div>

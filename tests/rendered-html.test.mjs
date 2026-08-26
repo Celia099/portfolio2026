@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render() {
@@ -25,11 +26,21 @@ test("server-renders the complete personal portfolio", async () => {
   assert.match(html, /需求洞察/);
   assert.match(html, /用户产品/);
   assert.match(html, /yanyanyao6049@163\.com/);
-  assert.match(html, /180-7901-8389/);
+  assert.match(html, /173-1071-9609/);
   assert.match(html, /github\.com\/celia099/);
   assert.match(html, /https:\/\/portfolio\.example\/og\.png/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
   assert.doesNotMatch(html, /增长产品|口径待确认|采用该版本单一口径|人工金标准|评测金标准|未包装为已上线产品/);
+  assert.doesNotMatch(html, /180-7901-8389/);
+});
+
+test("keeps the updated Tide Load evidence in the interactive book", async () => {
+  const source = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  assert.match(source, /潮汐 Load/);
+  assert.match(source, /PID 动态调控/);
+  assert.match(source, /保障分天 Load 达到 11\.5%/);
+  assert.match(source, /发现页整体消耗 \+7%/);
+  assert.doesNotMatch(source, /UE 实验复盘|180-7901-8389/);
 });
 
 test("exposes the playable project and all four internship stops", async () => {
