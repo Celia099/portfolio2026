@@ -16,10 +16,10 @@ test("builds a GitHub Pages bundle for the portfolio2026 project path", () => {
   assert.ok(cssName, "expected a generated CSS bundle");
 
   const css = readFileSync(join(outputDir, "assets", cssName), "utf8");
-  assert.match(css, /\/portfolio2026\/hero-background-v2\.png/);
+  assert.match(css, /\/portfolio2026\/hero-background-v2\.jpg/);
   assert.match(css, /\/portfolio2026\/rose-garden\.jpg/);
   assert.ok(existsSync(join(outputDir, ".nojekyll")));
-  assert.ok(existsSync(join(outputDir, "og.png")));
+  assert.ok(existsSync(join(outputDir, "og.jpg")));
   assert.ok(existsSync(join(outputDir, "previews", "rfm", "page-27.jpg")));
   assert.ok(existsSync(join(outputDir, "previews", "law-planet", "page-15.jpg")));
   assert.ok(existsSync(join(outputDir, "previews", "hydrogen-wheel", "page-22.jpg")));
