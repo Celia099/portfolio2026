@@ -21,7 +21,7 @@ test("keeps portfolio illustration payload within a fast-loading budget", async 
   const totalBytes = sizes.reduce((sum, size) => sum + size, 0);
   const heroBytes = sizes[0];
 
-  assert.ok(heroBytes <= 220 * 1024, `hero background is ${heroBytes} bytes; expected at most 220 KiB`);
+  assert.ok(heroBytes <= 90 * 1024, `hero background is ${heroBytes} bytes; expected at most 90 KiB`);
   assert.ok(totalBytes <= 1200 * 1024, `portfolio illustrations total ${totalBytes} bytes; expected at most 1.2 MiB`);
 });
 
