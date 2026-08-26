@@ -415,7 +415,10 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
 }
 
 @media (max-width: 520px) {
-  .site-nav > div a:nth-child(2), .site-nav > div a:nth-child(3) { display: none; }
+  .site-nav { padding-left: .8rem; padding-right: .8rem; }
+  .nav-name { font-size: .95rem; letter-spacing: .06em; }
+  .site-nav > div { gap: .65rem; }
+  .site-nav > div a { font-size: .68rem; letter-spacing: .04em; }
   .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
   .hero { background-position: 62% center; }
   .hero::before, .hero::after, .orbit { display: none; }
