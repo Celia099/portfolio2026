@@ -60,7 +60,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(246,237,215,.28) 0%, rgba(246,237,215,.12) 38%, rgba(246,237,215,0) 64%),
+    linear-gradient(90deg, rgba(255,249,233,.58) 0%, rgba(255,249,233,.30) 39%, rgba(246,237,215,.04) 67%),
     url('/hero-background-v2.png') center / cover no-repeat;
 }
 .hero::before, .hero::after {
@@ -76,18 +76,18 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 .orbit-one { width: 21rem; height: 7.5rem; right: -6rem; top: 13%; transform: rotate(-18deg); }
 .orbit-two { width: 12rem; height: 4.3rem; left: -5rem; bottom: 12%; transform: rotate(25deg); }
 .eyebrow { letter-spacing: .24em; font-size: .78rem; color: #7c6246; }
-.hero-copy { width: min(43rem, 46vw); position: relative; z-index: 2; text-shadow: 0 1px 0 rgba(255,249,233,.6); }
+.hero-copy { width: min(43rem, 46vw); position: relative; z-index: 2; color: #151b31; text-shadow: 0 1px 0 rgba(255,249,233,.88), 0 0 18px rgba(255,249,233,.32); }
 .hero h1 { font-size: clamp(4.8rem, 9vw, 8.8rem); line-height: .88; margin: 1.8rem 0 1.3rem; font-weight: 500; letter-spacing: -.08em; }
-.direction { color: var(--rose); font-size: clamp(1rem, 1.5vw, 1.28rem); letter-spacing: .055em; }
+.direction { color: #70283b; font-size: clamp(1rem, 1.5vw, 1.28rem); letter-spacing: .055em; font-weight: 600; }
 .intro { font-size: clamp(1.05rem, 1.55vw, 1.35rem); line-height: 2; max-width: 40rem; margin: 2.2rem 0; }
 .hero-actions { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
 .primary-link, .ghost-link { color: inherit; text-decoration: none; font-size: 1rem; }
 .primary-link { display: inline-flex; gap: 1rem; align-items: center; border-bottom: 1px solid currentColor; padding: .55rem 0; }
-.ghost-link { color: var(--rose); }
+.ghost-link { color: #70283b; font-weight: 600; }
 .hero-facts { display: flex; gap: clamp(1.5rem, 4vw, 4rem); margin: clamp(2.5rem, 5vw, 5rem) 0 0; }
 .hero-facts div { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .6rem; }
 .hero-facts dt { font-family: "Times New Roman", serif; font-size: 2.2rem; color: var(--violet); }
-.hero-facts dd { margin: 0; max-width: 7rem; font-size: .78rem; line-height: 1.4; color: var(--muted); }
+.hero-facts dd { margin: 0; max-width: 7rem; font-size: .78rem; line-height: 1.4; color: #3f3a34; }
 
 .section-heading { max-width: 900px; margin: 0 auto 3rem; text-align: center; }
 .section-heading h2 { font-weight: 500; font-size: clamp(2.4rem, 5vw, 4.8rem); line-height: 1.22; letter-spacing: -.04em; margin: 1rem 0 1.35rem; }
