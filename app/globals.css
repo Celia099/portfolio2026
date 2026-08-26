@@ -416,7 +416,11 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
 
 @media (max-width: 520px) {
   .site-nav { padding-left: .8rem; padding-right: .8rem; }
-  .nav-name { font-size: .95rem; letter-spacing: .06em; }
+  .nav-name {
+    font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+    font-size: .95rem;
+    letter-spacing: .12em;
+  }
   .site-nav > div { gap: .65rem; }
   .site-nav > div a { font-size: .68rem; letter-spacing: .04em; }
   .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
