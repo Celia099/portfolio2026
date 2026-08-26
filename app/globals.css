@@ -161,7 +161,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 .career-stop div { display: grid; gap: .28rem; }
 .career-stop strong { font-size: 1rem; }
 .career-stop span { font-size: .86rem; color: var(--muted); }
-.folio { position: absolute; bottom: 1.4rem; left: 0; right: 0; text-align: center; color: #8a7359; font-size: .72rem; }
+.folio { margin-top: auto; padding-top: 1.2rem; text-align: center; color: #8a7359; font-size: .72rem; }
 .book-arrow { width: 54px; height: 54px; border-radius: 50%; border: 1px solid rgba(57,46,36,.28); background: rgba(255,249,233,.58); color: var(--ink); font-size: 1.35rem; cursor: pointer; transition: transform .2s, background .2s, opacity .2s; }
 .book-arrow:hover:not(:disabled) { transform: scale(1.08); background: var(--paper-light); }
 .book-arrow:disabled { opacity: .25; cursor: not-allowed; }

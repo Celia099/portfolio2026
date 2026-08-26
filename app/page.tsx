@@ -51,8 +51,8 @@ const spreads: Spread[] = [
       title: "从商业现场，走向 AI 产品化",
       timeline: [
         { year: "2023.08—10", company: "脉脉 · 收入策略部", role: "商业化运营实习生" },
-        { year: "2024.01—03", company: "百度 · 搜索产品部", role: "游戏垂类产品经理实习生" },
-        { year: "2025.04—09", company: "小米 · 可穿戴产品部", role: "软件产品经理实习生" },
+        { year: "2024.01—03", company: "百度 · 搜索产品部", role: "搜索产品实习生（游戏垂类）" },
+        { year: "2025.04—09", company: "小米 · 可穿戴产品部", role: "软件产品实习生" },
         { year: "2025.12—2026.06", company: "快手 · 商业化流量产品中心", role: "流量策略产品实习生" },
       ],
     },
@@ -105,7 +105,7 @@ const spreads: Spread[] = [
     left: {
       kicker: "02 · XIAOMI",
       title: "小米｜把“不好用”拆成用户旅程",
-      meta: "可穿戴产品部 · 软件产品经理实习生 · 2025.04—09",
+      meta: "可穿戴产品部 · 软件产品实习生 · 2025.04—09",
       details: [
         {
           label: "通知链路与保活设置",
@@ -120,7 +120,7 @@ const spreads: Spread[] = [
     right: {
       kicker: "03 · BAIDU",
       title: "百度｜从搜索意图到信息结构",
-      meta: "搜索产品部 MEG · 游戏垂类产品实习生 · 2024.01—03",
+      meta: "搜索产品部 MEG · 搜索产品实习生（游戏垂类） · 2024.01—03",
       details: [
         {
           label: "数据追踪与竞品复验",
