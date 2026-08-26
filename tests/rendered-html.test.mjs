@@ -28,10 +28,11 @@ test("server-renders the complete personal portfolio", async () => {
   assert.match(html, /yanyanyao6049@163\.com/);
   assert.match(html, /173-1071-9609/);
   assert.match(html, /github\.com\/celia099/);
+  assert.match(html, />Everything-Everywhere-All-at-Once ↗</);
   assert.match(html, /https:\/\/portfolio\.example\/og\.png/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
   assert.doesNotMatch(html, /增长产品|口径待确认|采用该版本单一口径|人工金标准|评测金标准|未包装为已上线产品/);
-  assert.doesNotMatch(html, /180-7901-8389/);
+  assert.doesNotMatch(html, /180-7901-8389|Universe Leap/);
 });
 
 test("keeps the updated Tide Load evidence in the interactive book", async () => {

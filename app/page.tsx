@@ -385,7 +385,7 @@ export default function Home() {
             <a href="mailto:yanyanyao6049@163.com"><span>Email</span><strong>yanyanyao6049@163.com ↗</strong></a>
             <a href="tel:+8617310719609"><span>Phone</span><strong>173-1071-9609</strong></a>
             <a href="https://github.com/celia099" target="_blank" rel="noreferrer"><span>GitHub</span><strong>github.com/celia099 ↗</strong></a>
-            <a href="https://celia099.github.io/Everything-Everywhere-All-at-Once/" target="_blank" rel="noreferrer"><span>Featured project</span><strong>Universe Leap ↗</strong></a>
+            <a href="https://celia099.github.io/Everything-Everywhere-All-at-Once/" target="_blank" rel="noreferrer"><span>Featured project</span><strong>Everything-Everywhere-All-at-Once ↗</strong></a>
           </div>
         </div>
         <p className="copyright">© 2026 Yanyan Yao · Built with evidence, curiosity & a little starlight.</p>
