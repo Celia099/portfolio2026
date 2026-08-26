@@ -61,7 +61,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 .site-nav a { color: var(--ink); text-decoration: none; }
 .nav-name { font-family: "STKaiti", "KaiTi", "Songti SC", serif; font-size: 1.18rem; letter-spacing: .12em; font-weight: 700; }
 .site-nav > div { display: flex; gap: clamp(1rem, 3vw, 2.6rem); }
-.site-nav > div a { font-size: .88rem; letter-spacing: .08em; position: relative; }
+.site-nav > div a { font-size: .8rem; letter-spacing: .08em; position: relative; }
 .site-nav > div a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -.4rem; height: 1px; background: var(--rose); transition: right .25s ease; }
 .site-nav > div a:hover::after { right: 0; }
 
@@ -393,7 +393,7 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
 @media (max-width: 800px) {
   .site-nav { height: 60px; }
   .site-nav > div { gap: .9rem; }
-  .site-nav > div a { font-size: .72rem; }
+  .site-nav > div a { font-size: .66rem; }
   .hero { padding-top: 7rem; background-position: 58% center; }
   .hero-copy { width: min(36rem, 68vw); }
   .hero h1 { font-size: clamp(4rem, 23vw, 7rem); }
@@ -422,7 +422,7 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
     letter-spacing: .12em;
   }
   .site-nav > div { gap: .65rem; }
-  .site-nav > div a { font-size: .68rem; letter-spacing: .04em; }
+  .site-nav > div a { font-size: .62rem; letter-spacing: .04em; }
   .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
   .hero { background-position: 62% center; }
   .hero::before, .hero::after, .orbit { display: none; }
