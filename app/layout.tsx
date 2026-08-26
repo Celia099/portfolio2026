@@ -12,14 +12,14 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "姚岩岩 | AI 产品与策略产品",
     description: "从商业化策略、可穿戴体验到 AI 应用的个人作品集。",
     openGraph: {
-      title: "姚岩岩 | AI 产品 · 策略产品 · 增长产品",
+      title: "姚岩岩 | AI 产品 · 策略产品 · 用户产品",
       description: "实习、AI 项目、数据分析与创业实践的个人故事。",
       type: "website",
       images: [{ url: imageUrl, width: 1680, height: 945, alt: "姚岩岩个人作品集社交预览图" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "姚岩岩 | AI 产品 · 策略产品 · 增长产品",
+      title: "姚岩岩 | AI 产品 · 策略产品 · 用户产品",
       description: "实习、AI 项目、数据分析与创业实践的个人故事。",
       images: [imageUrl],
     },

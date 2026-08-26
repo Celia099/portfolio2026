@@ -64,11 +64,11 @@ const spreads: Spread[] = [
       details: [
         {
           label: "广告重复度评测 & Agent MVP",
-          text: "从视觉、内容、商品三维建立 0—3 级金标准，每周双人标注约 400 名高曝光用户。一期记录 3,862 次下滑、88 次重复感知，重复率约 2.28%。在内部平台搭建判重 Agent MVP，跑通输入—判断—汇总链路，但因准确率与效率不足未正式部署。",
+          text: "每周人工测评确定规则：从视觉、内容、商品三个维度建立 0—3 级重复标准，对约 400 名高曝光用户进行双人测评。一期记录 3,862 次下滑、88 次重复感知，重复率约 2.28%。在内部平台搭建判重 Agent MVP，跑通输入—判断—汇总链路，待后续进一步微调模型&接入消息号。",
         },
         {
           label: "多样性治理",
-          text: "推进频控底表时效性优化与刷内行业打散；一、二级行业重复分别显著下降 4.142% 和 4.793%。DAU +0.009%、时长 +0.042% 为方向性结果，不将其包装为显著增长。",
+          text: "推进频控底表时效性优化与刷内行业打散；一、二级行业重复分别显著下降 4.142% 和 4.793%，带动 DAU +0.009%、时长 +0.042%。",
         },
         {
           label: "双列精细化干预",
@@ -93,7 +93,7 @@ const spreads: Spread[] = [
         },
         {
           label: "触感体验升级",
-          text: "背景：波形单一、语义重叠、长波余震。动作：从时域、频域、强度和启停时间拆解竞品，建立 5 类 11 个基础波形语义库，优化 30+ 场景。结果：组织 300+ 人内部测试，材料记录高频交互体验超过 OPPO、75% 场景与华为相当（仅适用于当时内部口径）。",
+          text: "背景：波形单一、语义重叠、长波余震。动作：从时域、频域、强度和启停时间拆解竞品，建立 5 类 11 个基础波形语义库，优化 30+ 场景。结果：组织 300+ 人内部测试，高频交互体验超过 OPPO，75% 场景比肩华为。",
         },
       ],
     },
@@ -112,7 +112,7 @@ const spreads: Spread[] = [
         },
         {
           label: "游戏狂欢活动",
-          text: "为厂商联运活动新增搜索流量入口，优化首屏并为现金激励活动准备智能搜索题库。推广期材料记录游戏搜索平均 PV +35 万/天，人均搜索激发频次 +2。",
+          text: "为厂商联运活动新增搜索流量入口，优化首屏并为现金激励活动准备智能搜索题库。推广期间游戏搜索平均 PV +35 万/天，人均搜索激发频次 +2。",
         },
       ],
     },
@@ -145,7 +145,7 @@ const spreads: Spread[] = [
       details: [
         { label: "01 定义", text: "把主观感受、客诉或业务目标，转成可观测的问题。" },
         { label: "02 拆解", text: "区分链路、人群、候选供给、竞争力与不同指标层级。" },
-        { label: "03 验证", text: "用小流量实验、分层对照、评测金标准和负向结果做决策。" },
+        { label: "03 验证", text: "用小流量实验、分层对照、每周人工测评规则和负向结果做决策。" },
         { label: "04 转化", text: "把分析结论翻译为产品结构、策略边界与可执行的下一步。" },
       ],
     },
@@ -171,17 +171,17 @@ const projects = [
     tags: ["Workflow", "Human-in-the-loop", "Skills"],
     href: null,
     action: "暂未公开",
-    image: "/flying-book.jpg",
+    image: "/project-sweeping.jpg",
   },
   {
     no: "03",
     type: "AI 评测 · 企业内部 MVP",
     title: "广告重复度评测 Agent",
-    text: "在人工金标准之上验证大模型判重，完成相邻广告素材输入、多维判断、汇总与 HTML 输出链路。联调暴露出准确率、单次 2—3 分钟耗时与批处理问题，未包装为已上线产品。",
-    tags: ["金标准", "Agent MVP", "失败复盘"],
+    text: "以每周人工测评确定规则，验证大模型判重，完成相邻广告素材输入、多维判断、汇总与 HTML 输出链路。联调暴露出准确率、单次 2—3 分钟耗时与批处理问题，待后续进一步微调模型&接入消息号。",
+    tags: ["人工测评规则", "Agent MVP", "模型迭代"],
     href: null,
     action: "内部项目",
-    image: "/desert-well.jpg",
+    image: "/project-portrait.jpg",
   },
   {
     no: "04",
@@ -191,34 +191,34 @@ const projects = [
     tags: ["RFM", "LTV", "经营诊断"],
     href: null,
     action: "分析项目",
-    image: "/desert-well.jpg",
+    image: "/project-king.jpg",
   },
   {
     no: "05",
     type: "创新创业 · 北京市一等奖",
     title: "法学星球",
-    text: "调研 27 个竞品并访谈五院四系学生，以保研与法学素质教育切入产品。跨平台发布 50+ 条内容，小红书关注 2,200+、浏览 4.4 万+，积累 6 个百人群、14 单与 1 万元+收入（采用该版本单一口径）。",
+    text: "调研 27 个竞品并访谈五院四系学生，以保研与法学素质教育切入产品。跨平台发布 50+ 条内容，小红书关注 2,200+、浏览 4.4 万+，积累 6 个百人群、售出 14 单，累计收益 1 万元+。",
     tags: ["需求研究", "0→1", "内容增长"],
     href: null,
     action: "创赛项目",
-    image: "/rose-garden.jpg",
+    image: "/project-flowers.jpg",
   },
   {
     no: "06",
     type: "海外创业 · 北京市一等奖",
     title: "氢轮工作室",
-    text: "从欧洲高山骑行的轻量化需求切入，联合代工厂开模，通过 Instagram 与骑行社区触达专业玩家，并探索从直销到欧洲经销商的渠道模式。精确利润口径待进一步确认，因此本页不展示未完全核实的月利润数字。",
+    text: "从欧洲高山骑行的轻量化需求切入，联合国内头部自行车代工厂开模，通过 Instagram 与海外骑行论坛触达专业玩家，实现每月 2 万元+净利润；与 Instagram 博主合作“全世界最轻的轮组”项目，2024 年 5 月完成大规模推广，并完善独立站交易与社群功能。",
     tags: ["市场选择", "供应链", "海外渠道"],
     href: null,
     action: "创赛项目",
-    image: "/little-prince-planet.jpg",
+    image: "/project-cliff.jpg",
   },
 ];
 
 const skills = [
   { name: "需求洞察", en: "INSIGHT", proof: "从客诉、搜索行为、竞品落败 case 与用户访谈中定义真问题" },
   { name: "数据分析", en: "ANALYTICS", proof: "SQL、RFM、LTV、漏斗拆解、人群分层与指标可视化" },
-  { name: "AI 应用", en: "AI APPLICATION", proof: "模型能力选型、业务场景映射、金标准、Agent MVP 与负向实验迭代" },
+  { name: "AI 应用", en: "AI APPLICATION", proof: "模型能力选型、业务场景映射、人工测评规则、Agent MVP 与负向实验迭代" },
   { name: "策略实验", en: "EXPERIMENT", proof: "精排、出价、广告体验、AB/CUPED 思路与收益—风险保护栏" },
   { name: "产品定义", en: "PRODUCT", proof: "用户旅程、信息架构、交互流、软硬件语义与 PRD 交付" },
   { name: "商业落地", en: "BUSINESS", proof: "客户方案、广告运营、0→1 商业验证、海外渠道与跨团队推进" },
@@ -287,7 +287,7 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow">PORTFOLIO · 2026</p>
           <h1>姚岩岩</h1>
-          <p className="direction">AI 产品 · 策略产品 · 增长产品</p>
+          <p className="direction">AI 产品 · 策略产品 · 用户产品</p>
           <p className="intro">
             我从用户真正在意的问题出发，把模糊感受变成可定义的需求，
             把业务假设变成可验证的产品。
@@ -302,10 +302,6 @@ export default function Home() {
             <div><dt>6</dt><dd>项能力证据</dd></div>
           </dl>
         </div>
-        <figure className="hero-art">
-          <img src="/little-prince-planet.jpg" alt="小王子站在星球上，身边是星星与行星" />
-          <figcaption>B–612 · 从一颗小行星开始</figcaption>
-        </figure>
       </section>
 
       <section className="experience-section" id="experience">
@@ -380,16 +376,17 @@ export default function Home() {
       </section>
 
       <footer id="contact">
-        <img src="/flying-book.jpg" alt="小王子拉着群鸟飞离星球" />
+        <div className="footer-art" role="img" aria-label="小王子站在星球上，身边是星星与行星" />
         <div className="footer-copy">
           <p className="chapter">LAST PAGE · CONTACT</p>
           <h2>如果你也在思考 AI 如何真正进入业务与工作流，欢迎来聊聊。</h2>
-          <p>姚岩岩 · AI 产品 / 策略产品 / 增长产品</p>
+          <p>姚岩岩 · AI 产品 / 策略产品 / 用户产品</p>
           <div className="contact-links">
+            <a href="mailto:yanyanyao6049@163.com"><span>Email</span><strong>yanyanyao6049@163.com ↗</strong></a>
+            <a href="tel:+8618079018389"><span>Phone</span><strong>180-7901-8389</strong></a>
             <a href="https://github.com/celia099" target="_blank" rel="noreferrer"><span>GitHub</span><strong>github.com/celia099 ↗</strong></a>
             <a href="https://celia099.github.io/Everything-Everywhere-All-at-Once/" target="_blank" rel="noreferrer"><span>Featured project</span><strong>Universe Leap ↗</strong></a>
           </div>
-          <p className="contact-note">当前资料未包含可公开邮箱或手机号，因此暂以 GitHub 作为联系入口。</p>
         </div>
         <p className="copyright">© 2026 Yanyan Yao · Built with evidence, curiosity & a little starlight.</p>
       </footer>

@@ -54,17 +54,14 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 
 .hero {
   min-height: 100svh;
-  display: grid;
-  grid-template-columns: minmax(0, .98fr) minmax(360px, .72fr);
+  display: flex;
   align-items: center;
-  gap: clamp(3rem, 7vw, 8rem);
   padding: clamp(7rem, 9vw, 9rem) clamp(2rem, 6vw, 6.5rem) clamp(4rem, 6vw, 6rem);
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 14% 13%, rgba(239,189,53,.17), transparent 18rem),
-    radial-gradient(circle at 90% 74%, rgba(117,111,152,.1), transparent 22rem),
-    var(--paper);
+    linear-gradient(90deg, rgba(246,237,215,.28) 0%, rgba(246,237,215,.12) 38%, rgba(246,237,215,0) 64%),
+    url('/hero-background-v2.png') center / cover no-repeat;
 }
 .hero::before, .hero::after {
   content: "★";
@@ -73,13 +70,14 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
   text-shadow: 1px 1px 0 #93782b;
   transform: rotate(-12deg);
 }
-.hero::before { top: 13%; left: 48%; font-size: 1.8rem; }
+.hero::before { top: 13%; left: 44%; font-size: 1.8rem; }
 .hero::after { bottom: 10%; left: 5%; font-size: 1.1rem; }
 .orbit { position: absolute; border: 1px solid rgba(117,111,152,.2); border-radius: 50%; pointer-events: none; }
 .orbit-one { width: 21rem; height: 7.5rem; right: -6rem; top: 13%; transform: rotate(-18deg); }
 .orbit-two { width: 12rem; height: 4.3rem; left: -5rem; bottom: 12%; transform: rotate(25deg); }
 .eyebrow { letter-spacing: .24em; font-size: .78rem; color: #7c6246; }
-.hero h1 { font-size: clamp(4.8rem, 10vw, 9.6rem); line-height: .88; margin: 1.8rem 0 1.3rem; font-weight: 500; letter-spacing: -.08em; }
+.hero-copy { width: min(43rem, 46vw); position: relative; z-index: 2; text-shadow: 0 1px 0 rgba(255,249,233,.6); }
+.hero h1 { font-size: clamp(4.8rem, 9vw, 8.8rem); line-height: .88; margin: 1.8rem 0 1.3rem; font-weight: 500; letter-spacing: -.08em; }
 .direction { color: var(--rose); font-size: clamp(1rem, 1.5vw, 1.28rem); letter-spacing: .055em; }
 .intro { font-size: clamp(1.05rem, 1.55vw, 1.35rem); line-height: 2; max-width: 40rem; margin: 2.2rem 0; }
 .hero-actions { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
@@ -90,10 +88,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 .hero-facts div { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .6rem; }
 .hero-facts dt { font-family: "Times New Roman", serif; font-size: 2.2rem; color: var(--violet); }
 .hero-facts dd { margin: 0; max-width: 7rem; font-size: .78rem; line-height: 1.4; color: var(--muted); }
-.hero-art { margin: 0; transform: rotate(1.2deg); position: relative; }
-.hero-art::before { content: ""; position: absolute; width: 4rem; height: 4rem; border-radius: 50%; background: var(--sun); top: -1.8rem; right: -1.8rem; z-index: -1; box-shadow: inset -12px -8px 0 rgba(186,124,45,.25); }
-.hero-art img { width: 100%; max-height: 72svh; object-fit: cover; object-position: 50% 43%; border: 12px solid rgba(255,255,255,.46); box-shadow: 0 24px 70px rgba(57,44,50,.19); filter: saturate(.82) contrast(.96); }
-.hero-art figcaption { text-align: right; margin-top: .8rem; font-size: .8rem; font-style: italic; color: #6e654e; }
 
 .section-heading { max-width: 900px; margin: 0 auto 3rem; text-align: center; }
 .section-heading h2 { font-weight: 500; font-size: clamp(2.4rem, 5vw, 4.8rem); line-height: 1.22; letter-spacing: -.04em; margin: 1rem 0 1.35rem; }
@@ -189,7 +183,7 @@ footer { min-height: 84svh; display: grid; grid-template-columns: minmax(320px, 
 footer::before, footer::after { content: "★"; position: absolute; color: var(--sun); }
 footer::before { top: 10%; right: 11%; font-size: 1.8rem; }
 footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
-footer > img { width: 100%; max-height: 68svh; object-fit: cover; object-position: 35% center; opacity: .88; border: 10px solid rgba(248,239,216,.12); filter: sepia(.1) saturate(.75); }
+.footer-art { width: 100%; height: min(68svh, 720px); background: url('/little-prince-planet.jpg') 35% center / cover no-repeat; opacity: .88; border: 10px solid rgba(248,239,216,.12); filter: sepia(.1) saturate(.75); }
 .footer-copy { max-width: 740px; }
 .footer-copy .chapter { color: #efc44b; }
 .footer-copy h2 { font-size: clamp(2.3rem, 4.8vw, 4.8rem); font-weight: 500; line-height: 1.22; margin: 1rem 0 1.5rem; }
@@ -202,7 +196,7 @@ footer > img { width: 100%; max-height: 68svh; object-fit: cover; object-positio
 .copyright { position: absolute; bottom: 1.8rem; left: 0; right: 0; text-align: center; font-size: .7rem; color: #9895a8; letter-spacing: .08em; }
 
 @media (max-width: 1080px) {
-  .hero { grid-template-columns: 1fr 420px; gap: 3rem; }
+  .hero-copy { width: min(42rem, 58vw); }
   .book { min-height: 760px; }
   .book-page { height: 760px; }
   .rose-field { grid-template-columns: repeat(2, 1fr); }
@@ -213,9 +207,9 @@ footer > img { width: 100%; max-height: 68svh; object-fit: cover; object-positio
   .site-nav { height: 60px; }
   .site-nav > div { gap: .9rem; }
   .site-nav > div a { font-size: .72rem; }
-  .hero { grid-template-columns: 1fr; padding-top: 7rem; }
+  .hero { padding-top: 7rem; background-position: 58% center; }
+  .hero-copy { width: min(36rem, 68vw); }
   .hero h1 { font-size: clamp(4rem, 23vw, 7rem); }
-  .hero-art img { max-height: 62svh; }
   .hero-facts { justify-content: space-between; }
   .hero-facts div { grid-template-columns: 1fr; }
   .book-stage { grid-template-columns: 1fr; }
@@ -230,12 +224,15 @@ footer > img { width: 100%; max-height: 68svh; object-fit: cover; object-positio
   .rose-field { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .skill-rose { min-height: 390px; }
   footer { grid-template-columns: 1fr; }
-  footer > img { max-height: 55svh; }
+  .footer-art { height: min(55svh, 600px); }
 }
 
 @media (max-width: 520px) {
   .site-nav > div a:nth-child(2), .site-nav > div a:nth-child(3) { display: none; }
   .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .hero { background-position: 62% center; }
+  .hero::before, .hero::after, .orbit { display: none; }
+  .hero-copy { width: 100%; padding: 2rem 1.2rem; background: rgba(255,249,233,.72); border: 1px solid rgba(103,44,64,.16); backdrop-filter: blur(3px); }
   .hero-facts { gap: .8rem; }
   .hero-facts dt { font-size: 1.7rem; }
   .hero-facts dd { font-size: .68rem; }

@@ -23,9 +23,13 @@ test("server-renders the complete personal portfolio", async () => {
   assert.match(html, /一本关于“如何做决定”的实习故事/);
   assert.match(html, /瞬息全宇宙：逃离贝果/);
   assert.match(html, /需求洞察/);
+  assert.match(html, /用户产品/);
+  assert.match(html, /yanyanyao6049@163\.com/);
+  assert.match(html, /180-7901-8389/);
   assert.match(html, /github\.com\/celia099/);
   assert.match(html, /https:\/\/portfolio\.example\/og\.png/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
+  assert.doesNotMatch(html, /增长产品|口径待确认|采用该版本单一口径|人工金标准|评测金标准|未包装为已上线产品/);
 });
 
 test("exposes the playable project and all four internship stops", async () => {
