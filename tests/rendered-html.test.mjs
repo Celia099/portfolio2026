@@ -49,10 +49,12 @@ test("server-renders the complete personal portfolio", async () => {
 
 test("keeps the updated Tide Load evidence in the interactive book", async () => {
   const source = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const internshipSource = source.slice(source.indexOf("const spreads"), source.indexOf("const projects"));
   assert.match(source, /潮汐 Load/);
   assert.match(source, /PID 动态调控/);
   assert.match(source, /保障分天 Load 达到 11\.5%/);
   assert.match(source, /发现页整体消耗 \+7%/);
+  assert.doesNotMatch(internshipSource, /我/);
   assert.doesNotMatch(source, /UE 实验复盘|180-7901-8389/);
 });
 
@@ -76,7 +78,7 @@ test("keeps project illustrations tall and top-aligned", async () => {
 test("offers image-only, on-site reading for the three portfolio documents", async () => {
   const source = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   const documentCases = [
-    { slug: "rfm", pages: 27, title: "基于 RFM 的会员留存策略研究" },
+    { slug: "rfm", pages: 26, title: "基于 RFM 的会员留存策略研究" },
     { slug: "law-planet", pages: 15, title: "法学星球——专注 20 万法学生的素质教育" },
     { slug: "hydrogen-wheel", pages: 22, title: "氢轮工作室“互联网+”答辩材料" },
   ];
@@ -84,6 +86,7 @@ test("offers image-only, on-site reading for the three portfolio documents", asy
   assert.match(source, /站内阅览材料/);
   assert.match(source, /原始 PDF 未公开/);
   assert.match(source, /不提供 PDF 下载/);
+  assert.match(source, /firstPage: 2/);
   assert.doesNotMatch(source, /\.pdf/i);
 
   for (const documentCase of documentCases) {
@@ -97,4 +100,6 @@ test("offers image-only, on-site reading for the three portfolio documents", asy
 
   const publicFiles = await listFiles(new URL("../public/", import.meta.url));
   assert.equal(publicFiles.filter((path) => path.toLowerCase().endsWith(".pdf")).length, 0);
+  assert.equal(publicFiles.some((path) => path.endsWith("/previews/rfm/page-01.jpg")), false);
+  assert.equal(publicFiles.some((path) => path.endsWith("/previews/rfm/page-02.jpg")), true);
 });

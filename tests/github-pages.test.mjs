@@ -21,6 +21,8 @@ test("builds a GitHub Pages bundle for the portfolio2026 project path", () => {
   assert.ok(existsSync(join(outputDir, ".nojekyll")));
   assert.ok(existsSync(join(outputDir, "og.jpg")));
   assert.ok(existsSync(join(outputDir, "previews", "rfm", "page-27.jpg")));
+  assert.equal(existsSync(join(outputDir, "previews", "rfm", "page-01.jpg")), false);
+  assert.ok(existsSync(join(outputDir, "previews", "rfm", "page-02.jpg")));
   assert.ok(existsSync(join(outputDir, "previews", "law-planet", "page-15.jpg")));
   assert.ok(existsSync(join(outputDir, "previews", "hydrogen-wheel", "page-22.jpg")));
 });
