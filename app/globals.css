@@ -96,16 +96,12 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
   position: relative;
   z-index: 2;
   color: #211a1c;
-  padding: clamp(1.8rem, 3vw, 3.4rem);
-  background:
-    radial-gradient(circle at 18% 14%, rgba(120,73,37,.09) 0 1px, transparent 2px),
-    linear-gradient(135deg, rgba(246,233,198,.89), rgba(225,199,148,.72));
-  background-size: 83px 83px, auto;
-  border: 1px solid rgba(82, 48, 26, .38);
-  outline: 1px solid rgba(167, 122, 37, .35);
-  outline-offset: -10px;
-  box-shadow: 0 22px 60px rgba(50, 31, 24, .18), inset 0 0 35px rgba(100, 58, 30, .09);
-  text-shadow: 0 1px 0 rgba(255,247,218,.75);
+  padding: 0;
+  background: none;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  text-shadow: 0 1px 0 rgba(255,247,218,.88), 0 0 12px rgba(245,227,184,.45);
 }
 .hero h1 {
   position: relative;
@@ -276,7 +272,7 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
   .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
   .hero { background-position: 62% center; }
   .hero::before, .hero::after, .orbit { display: none; }
-  .hero-copy { width: 100%; padding: 2rem 1.2rem; background: linear-gradient(145deg, rgba(244,229,190,.9), rgba(219,190,135,.82)); border: 1px solid rgba(86,51,29,.38); backdrop-filter: blur(3px) sepia(.15); }
+  .hero-copy { width: 100%; padding: 0; background: none; border: 0; backdrop-filter: none; }
   .hero-facts { gap: .8rem; }
   .hero-facts dt { font-size: 1.7rem; }
   .hero-facts dd { font-size: .68rem; }
