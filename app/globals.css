@@ -61,7 +61,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 .site-nav a { color: var(--ink); text-decoration: none; }
 .nav-name { font-family: "STKaiti", "KaiTi", "Songti SC", serif; font-size: 1.18rem; letter-spacing: .12em; font-weight: 700; }
 .site-nav > div { display: flex; gap: clamp(1rem, 3vw, 2.6rem); }
-.site-nav > div a { font-size: .8rem; letter-spacing: .08em; position: relative; }
+.site-nav > div a { font-size: .88rem; letter-spacing: .08em; position: relative; }
 .site-nav > div a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -.4rem; height: 1px; background: var(--rose); transition: right .25s ease; }
 .site-nav > div a:hover::after { right: 0; }
 
@@ -130,7 +130,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 .hero-facts dd { margin: 0; max-width: 7rem; font-size: .78rem; line-height: 1.4; color: #3f3a34; }
 
 .section-heading { max-width: 900px; margin: 0 auto 3rem; text-align: center; }
-.section-heading h2 { font-family: "STKaiti", "KaiTi", "Songti SC", serif; font-weight: 700; font-size: clamp(2.4rem, 5vw, 4.8rem); line-height: 1.22; letter-spacing: -.04em; margin: 1rem 0 1.35rem; color: #342226; text-shadow: 0 1px 0 rgba(255,245,215,.7); }
+.section-heading h2 { font-family: "STKaiti", "KaiTi", "Songti SC", serif; font-weight: 700; font-size: clamp(2.2rem, 4.5vw, 4.4rem); line-height: 1.22; letter-spacing: -.04em; margin: 1rem 0 1.35rem; color: #342226; text-shadow: 0 1px 0 rgba(255,245,215,.7); }
 .section-heading > p:last-child { max-width: 680px; margin: 0 auto; line-height: 1.9; color: var(--muted); }
 .chapter { letter-spacing: .23em; font-size: .78rem; color: var(--rose); }
 
@@ -373,7 +373,7 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
 .footer-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 35% center; }
 .footer-copy { max-width: 740px; }
 .footer-copy .chapter { color: #efc44b; }
-.footer-copy h2 { font-family: "STKaiti", "KaiTi", "Songti SC", serif; font-size: clamp(2.3rem, 4.8vw, 4.8rem); font-weight: 700; line-height: 1.22; margin: 1rem 0 1.5rem; text-shadow: 0 2px 12px rgba(0,0,0,.42); }
+.footer-copy h2 { font-family: "STKaiti", "KaiTi", "Songti SC", serif; font-size: clamp(2.1rem, 4.3vw, 4.2rem); font-weight: 700; line-height: 1.22; margin: 1rem 0 1.5rem; text-shadow: 0 2px 12px rgba(0,0,0,.42); }
 .footer-copy > p { line-height: 1.8; color: #d9d1c2; }
 .contact-links { display: grid; gap: 1rem; margin-top: 2.5rem; }
 .contact-links a { display: flex; align-items: center; justify-content: space-between; gap: 2rem; color: #f8efd8; text-decoration: none; padding: 1.2rem 0; border-top: 1px solid rgba(248,239,216,.24); }
@@ -393,7 +393,7 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
 @media (max-width: 800px) {
   .site-nav { height: 60px; }
   .site-nav > div { gap: .9rem; }
-  .site-nav > div a { font-size: .66rem; }
+  .site-nav > div a { font-size: .72rem; }
   .hero { padding-top: 7rem; background-position: 58% center; }
   .hero-copy { width: min(36rem, 68vw); }
   .hero h1 { font-size: clamp(4rem, 23vw, 7rem); }
@@ -422,7 +422,7 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
     letter-spacing: .12em;
   }
   .site-nav > div { gap: .65rem; }
-  .site-nav > div a { font-size: .62rem; letter-spacing: .04em; }
+  .site-nav > div a { font-size: .68rem; letter-spacing: .04em; }
   .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
   .hero { background-position: 62% center; }
   .hero::before, .hero::after, .orbit { display: none; }
@@ -430,7 +430,8 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
   .hero-facts { gap: .8rem; }
   .hero-facts dt { font-size: 1.7rem; }
   .hero-facts dd { font-size: .68rem; }
-  .section-heading h2 { font-size: 2.45rem; }
+  .section-heading h2 { font-size: 2.2rem; }
+  .footer-copy h2 { font-size: 2.1rem; }
   .book-page { padding: 2rem 1.35rem 3rem; }
   .book-page h3 { font-size: 2rem; }
   .rose-field { grid-template-columns: 1fr; }
