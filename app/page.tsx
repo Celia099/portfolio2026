@@ -161,7 +161,7 @@ const projects = [
     tags: ["互动原型", "AI 协作", "游戏机制"],
     href: "https://celia099.github.io/Everything-Everywhere-All-at-Once/",
     action: "打开试玩",
-    image: "/comic-grid.jpg",
+    image: "comic-grid.jpg",
   },
   {
     no: "02",
@@ -171,7 +171,7 @@ const projects = [
     tags: ["Workflow", "Human-in-the-loop", "Skills"],
     href: null,
     action: "暂未公开",
-    image: "/project-sweeping.jpg",
+    image: "project-sweeping.jpg",
   },
   {
     no: "03",
@@ -181,7 +181,7 @@ const projects = [
     tags: ["人工测评规则", "Agent MVP", "模型迭代"],
     href: null,
     action: "内部项目",
-    image: "/project-portrait.jpg",
+    image: "project-portrait.jpg",
   },
   {
     no: "04",
@@ -191,7 +191,7 @@ const projects = [
     tags: ["RFM", "LTV", "经营诊断"],
     href: null,
     action: "分析项目",
-    image: "/project-king.jpg",
+    image: "project-king.jpg",
   },
   {
     no: "05",
@@ -201,7 +201,7 @@ const projects = [
     tags: ["需求研究", "0→1", "内容增长"],
     href: null,
     action: "创赛项目",
-    image: "/project-flowers.jpg",
+    image: "project-flowers.jpg",
   },
   {
     no: "06",
@@ -211,7 +211,7 @@ const projects = [
     tags: ["市场选择", "供应链", "海外渠道"],
     href: null,
     action: "创赛项目",
-    image: "/project-cliff.jpg",
+    image: "project-cliff.jpg",
   },
 ];
 

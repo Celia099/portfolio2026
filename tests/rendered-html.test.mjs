@@ -52,3 +52,12 @@ test("exposes the playable project and all four internship stops", async () => {
     assert.match(html, new RegExp(company));
   }
 });
+
+test("keeps project illustrations tall and top-aligned", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const source = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  assert.match(css, /\.panel-art \{[^}]*height: clamp\(250px, 24vw, 310px\)/);
+  assert.match(css, /\.panel-art \{[^}]*background-position: center, center top/);
+  assert.doesNotMatch(css, /\.panel-[125] \.panel-art \{ background-position:/);
+  assert.doesNotMatch(source, /image: "\/project-|image: "\/comic-grid/);
+});
