@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 async function render() {
@@ -12,6 +12,17 @@ async function render() {
     { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
     { waitUntil() {}, passThroughOnException() {} },
   );
+}
+
+async function listFiles(root) {
+  const entries = await readdir(root, { withFileTypes: true });
+  const files = await Promise.all(
+    entries.map((entry) => {
+      const child = new URL(entry.name + (entry.isDirectory() ? "/" : ""), root);
+      return entry.isDirectory() ? listFiles(child) : child.pathname;
+    }),
+  );
+  return files.flat();
 }
 
 test("server-renders the complete personal portfolio", async () => {
@@ -60,4 +71,30 @@ test("keeps project illustrations tall and top-aligned", async () => {
   assert.match(css, /\.panel-art \{[^}]*background-position: center, center top/);
   assert.doesNotMatch(css, /\.panel-[125] \.panel-art \{ background-position:/);
   assert.doesNotMatch(source, /image: "\/project-|image: "\/comic-grid/);
+});
+
+test("offers image-only, on-site reading for the three portfolio documents", async () => {
+  const source = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const documentCases = [
+    { slug: "rfm", pages: 27, title: "基于 RFM 的会员留存策略研究" },
+    { slug: "law-planet", pages: 15, title: "法学星球——专注 20 万法学生的素质教育" },
+    { slug: "hydrogen-wheel", pages: 22, title: "氢轮工作室“互联网+”答辩材料" },
+  ];
+
+  assert.match(source, /站内阅览材料/);
+  assert.match(source, /原始 PDF 未公开/);
+  assert.match(source, /不提供 PDF 下载/);
+  assert.doesNotMatch(source, /\.pdf/i);
+
+  for (const documentCase of documentCases) {
+    assert.match(source, new RegExp(`slug: "${documentCase.slug}"`));
+    assert.match(source, new RegExp(`pageCount: ${documentCase.pages}`));
+    assert.match(source, new RegExp(documentCase.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+
+    const pages = await readdir(new URL(`../public/previews/${documentCase.slug}/`, import.meta.url));
+    assert.equal(pages.filter((name) => /^page-\d{2}\.jpg$/.test(name)).length, documentCase.pages);
+  }
+
+  const publicFiles = await listFiles(new URL("../public/", import.meta.url));
+  assert.equal(publicFiles.filter((path) => path.toLowerCase().endsWith(".pdf")).length, 0);
 });

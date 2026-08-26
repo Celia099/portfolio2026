@@ -186,9 +186,154 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 .panel-copy > p { font-size: .92rem; line-height: 1.85; color: #47413c; margin: 0 0 1.2rem; }
 .tag-row { display: flex; flex-wrap: wrap; gap: .55rem; margin: 0 0 1.4rem; }
 .tag-row span { font-size: .72rem; border: 1px solid #d0b992; border-radius: 999px; padding: .32rem .7rem; color: #775f45; }
-.panel-copy a, .muted-action { display: inline-block; font-size: .86rem; }
+.panel-copy a, .document-link, .muted-action { display: inline-block; font-size: .86rem; }
 .panel-copy a { color: var(--rose); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .22rem; }
+.document-link {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  padding: 0 0 .22rem;
+  background: transparent;
+  color: var(--rose);
+  cursor: pointer;
+}
+.document-link:hover { color: var(--rose-dark); }
 .muted-action { color: #8e857c; }
+
+.document-modal {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(.75rem, 2vw, 1.6rem);
+}
+.document-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: rgba(27, 20, 26, .82);
+  backdrop-filter: blur(12px) sepia(.2);
+  cursor: default;
+}
+.document-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, 100%);
+  height: min(94svh, 900px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(126, 75, 36, .08) 0 1px, transparent 2px),
+    repeating-linear-gradient(96deg, rgba(92, 63, 35, .025) 0 1px, transparent 1px 7px),
+    linear-gradient(145deg, #f4e7c7, #d6b982);
+  background-size: 83px 83px, auto, auto;
+  border: 1px solid rgba(212, 170, 80, .76);
+  outline: 1px solid rgba(255, 242, 198, .38);
+  outline-offset: -9px;
+  border-radius: 3px;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, .55), inset 0 0 60px rgba(92, 54, 29, .12);
+}
+.document-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.15rem, 2vw, 1.8rem) clamp(1.2rem, 3vw, 2.5rem) 1rem;
+  border-bottom: 1px solid rgba(75, 49, 34, .24);
+}
+.document-header p {
+  margin: 0 0 .45rem;
+  color: var(--rose);
+  font-family: "Times New Roman", "Songti SC", serif;
+  font-size: .69rem;
+  letter-spacing: .13em;
+}
+.document-header h2 {
+  margin: 0;
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.35;
+  font-weight: 700;
+}
+.document-close {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(75, 49, 34, .35);
+  border-radius: 50%;
+  color: var(--ink);
+  background: rgba(250, 237, 201, .56);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.document-close:hover { background: var(--paper-light); }
+.document-reader {
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  padding: clamp(.8rem, 2vw, 1.4rem);
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 245, 211, .08), transparent 45%),
+    #29232c;
+  box-shadow: inset 0 0 55px rgba(0, 0, 0, .42);
+  overscroll-behavior: contain;
+}
+.document-reader img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .34);
+}
+.document-reader.portrait img { max-width: min(100%, 620px); }
+.document-reader.landscape img { max-width: min(100%, 1050px); }
+.document-controls {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: .9rem clamp(1.2rem, 3vw, 2.5rem) .55rem;
+}
+.document-controls button {
+  justify-self: start;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: .35rem 0;
+  color: var(--rose-dark);
+  background: transparent;
+  cursor: pointer;
+}
+.document-controls button:last-child { justify-self: end; }
+.document-controls button:disabled { opacity: .3; cursor: not-allowed; }
+.document-controls p {
+  margin: 0;
+  color: var(--muted);
+  font-family: "Times New Roman", "Songti SC", serif;
+  font-size: .82rem;
+}
+.document-controls strong { color: var(--rose-dark); font-size: 1.15rem; }
+.document-notice {
+  margin: 0;
+  padding: 0 1.2rem 1rem;
+  color: #766957;
+  text-align: center;
+  font-size: .72rem;
+}
 
 .skills-section { min-height: 100svh; position: relative; padding: clamp(6rem, 9vw, 9rem) clamp(1rem, 5vw, 5rem) clamp(7rem, 11vw, 12rem); overflow: hidden; background: #c6a879; box-shadow: inset 0 0 110px rgba(60,36,28,.2); }
 .rose-backdrop { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(237,218,177,.9) 0%, rgba(221,192,144,.7) 34%, rgba(121,83,64,.24) 68%, rgba(45,55,38,.45) 100%), url('/rose-garden.jpg') center 76% / cover no-repeat; opacity: .84; filter: sepia(.28) saturate(.74) contrast(.94); }
@@ -280,6 +425,20 @@ footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
   .skill-rose { min-height: 360px; }
   .rose-backdrop { opacity: .45; }
   .contact-links a { align-items: flex-start; flex-direction: column; gap: .45rem; }
+  .document-modal { padding: 0; }
+  .document-dialog { height: 100svh; border: 0; outline: 0; }
+  .document-header { gap: .75rem; padding: 1rem; }
+  .document-header h2 { font-size: 1.08rem; }
+  .document-header p { letter-spacing: .07em; }
+  .document-close { width: 2.2rem; height: 2.2rem; }
+  .document-reader { padding: .55rem; }
+  .document-controls { padding: .7rem 1rem .45rem; }
+  .document-controls button { font-size: .78rem; }
+  .document-notice { padding-bottom: .7rem; font-size: .64rem; }
+}
+
+@media print {
+  .document-modal { display: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {

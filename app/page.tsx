@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type BookPage = {
   kicker: string;
@@ -12,6 +12,25 @@ type BookPage = {
 };
 
 type Spread = { left: BookPage; right: BookPage };
+
+type ProjectDocument = {
+  slug: "rfm" | "law-planet" | "hydrogen-wheel";
+  title: string;
+  pageCount: number;
+  layout: "portrait" | "landscape";
+};
+
+type PortfolioProject = {
+  no: string;
+  type: string;
+  title: string;
+  text: string;
+  tags: string[];
+  href: string | null;
+  action: string;
+  image: string;
+  document?: ProjectDocument;
+};
 
 const spreads: Spread[] = [
   {
@@ -152,7 +171,7 @@ const spreads: Spread[] = [
   },
 ];
 
-const projects = [
+const projects: PortfolioProject[] = [
   {
     no: "01",
     type: "AI 协作开发 · 可试玩",
@@ -192,6 +211,12 @@ const projects = [
     href: null,
     action: "分析项目",
     image: "project-king.jpg",
+    document: {
+      slug: "rfm",
+      title: "基于 RFM 的会员留存策略研究",
+      pageCount: 27,
+      layout: "portrait",
+    },
   },
   {
     no: "05",
@@ -202,6 +227,12 @@ const projects = [
     href: null,
     action: "创赛项目",
     image: "project-flowers.jpg",
+    document: {
+      slug: "law-planet",
+      title: "法学星球——专注 20 万法学生的素质教育",
+      pageCount: 15,
+      layout: "landscape",
+    },
   },
   {
     no: "06",
@@ -212,6 +243,12 @@ const projects = [
     href: null,
     action: "创赛项目",
     image: "project-cliff.jpg",
+    document: {
+      slug: "hydrogen-wheel",
+      title: "氢轮工作室“互联网+”答辩材料",
+      pageCount: 22,
+      layout: "landscape",
+    },
   },
 ];
 
@@ -227,6 +264,30 @@ const skills = [
 export default function Home() {
   const [spreadIndex, setSpreadIndex] = useState(0);
   const [turning, setTurning] = useState<"next" | "prev" | null>(null);
+  const [activeDocument, setActiveDocument] = useState<ProjectDocument | null>(null);
+  const [documentPage, setDocumentPage] = useState(1);
+
+  useEffect(() => {
+    if (!activeDocument) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActiveDocument(null);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeDocument]);
+
+  const openDocument = (projectDocument: ProjectDocument) => {
+    setDocumentPage(1);
+    setActiveDocument(projectDocument);
+  };
 
   const turnPage = (direction: "next" | "prev") => {
     if (turning) return;
@@ -346,6 +407,10 @@ export default function Home() {
                 <div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                 {project.href ? (
                   <a href={project.href} target="_blank" rel="noreferrer">{project.action} ↗</a>
+                ) : project.document ? (
+                  <button className="document-link" type="button" onClick={() => openDocument(project.document!)}>
+                    站内阅览材料 ↗
+                  </button>
                 ) : (
                   <span className="muted-action">{project.action}</span>
                 )}
@@ -390,6 +455,51 @@ export default function Home() {
         </div>
         <p className="copyright">© 2026 Yanyan Yao · Built with evidence, curiosity & a little starlight.</p>
       </footer>
+
+      {activeDocument && (
+        <div className="document-modal">
+          <button className="document-backdrop" type="button" onClick={() => setActiveDocument(null)} aria-label="关闭文档预览" />
+          <section
+            className="document-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="document-title"
+          >
+            <header className="document-header">
+              <div>
+                <p>ON-SITE READING · 原始 PDF 未公开</p>
+                <h2 id="document-title">{activeDocument.title}</h2>
+              </div>
+              <button type="button" className="document-close" onClick={() => setActiveDocument(null)} aria-label="关闭文档预览">
+                ×
+              </button>
+            </header>
+
+            <div className={`document-reader ${activeDocument.layout}`}>
+              {/* The pages are intentionally published as image-only previews; no source PDF is shipped. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`previews/${activeDocument.slug}/page-${String(documentPage).padStart(2, "0")}.jpg`}
+                alt={`${activeDocument.title} 第 ${documentPage} 页`}
+                draggable={false}
+                onContextMenu={(event) => event.preventDefault()}
+                onDragStart={(event) => event.preventDefault()}
+              />
+            </div>
+
+            <div className="document-controls">
+              <button type="button" onClick={() => setDocumentPage((page) => Math.max(1, page - 1))} disabled={documentPage === 1}>
+                ← 上一页
+              </button>
+              <p aria-live="polite"><strong>{String(documentPage).padStart(2, "0")}</strong> / {activeDocument.pageCount}</p>
+              <button type="button" onClick={() => setDocumentPage((page) => Math.min(activeDocument.pageCount, page + 1))} disabled={documentPage === activeDocument.pageCount}>
+                下一页 →
+              </button>
+            </div>
+            <p className="document-notice">为保护原始材料，本站仅提供逐页图片预览，不提供 PDF 下载。</p>
+          </section>
+        </div>
+      )}
     </main>
   );
 }
