@@ -178,9 +178,11 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 .project-panel:nth-child(even) { --tilt: .35deg; }
 .panel-1, .panel-2 { grid-column: span 6; }
 .panel-3, .panel-4, .panel-5, .panel-6 { grid-column: span 6; }
-.panel-art { height: clamp(250px, 24vw, 310px); background-color: rgba(117,77,42,.2); background-blend-mode: multiply; background-size: cover, cover; background-position: center, center top; background-repeat: no-repeat; padding: 1.2rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; color: #fff8e7; box-shadow: inset 0 0 65px rgba(52,31,22,.4); }
-.project-no { align-self: flex-start; width: 3rem; height: 3rem; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; display: grid; place-items: center; background: rgba(36,36,58,.3); }
-.panel-art p { margin: 0; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; text-align: right; }
+.panel-art { height: clamp(250px, 24vw, 310px); position: relative; overflow: hidden; background-color: rgba(117,77,42,.2); padding: 1.2rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; color: #fff8e7; box-shadow: inset 0 0 65px rgba(52,31,22,.4); }
+.panel-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 25%, rgba(22,24,39,.82) 100%); pointer-events: none; }
+.panel-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.project-no { position: relative; z-index: 1; align-self: flex-start; width: 3rem; height: 3rem; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; display: grid; place-items: center; background: rgba(36,36,58,.3); }
+.panel-art p { position: relative; z-index: 1; margin: 0; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; text-align: right; }
 .panel-copy { padding: clamp(1.4rem, 3vw, 2.4rem); }
 .panel-copy h3 { font-size: clamp(1.5rem, 2.2vw, 2.1rem); margin: 0 0 1rem; font-weight: 500; }
 .panel-copy > p { font-size: .92rem; line-height: 1.85; color: #47413c; margin: 0 0 1.2rem; }
@@ -336,7 +338,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-o
 }
 
 .skills-section { min-height: 100svh; position: relative; padding: clamp(6rem, 9vw, 9rem) clamp(1rem, 5vw, 5rem) clamp(7rem, 11vw, 12rem); overflow: hidden; background: #c6a879; box-shadow: inset 0 0 110px rgba(60,36,28,.2); }
-.rose-backdrop { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(237,218,177,.9) 0%, rgba(221,192,144,.7) 34%, rgba(121,83,64,.24) 68%, rgba(45,55,38,.45) 100%), url('/rose-garden.jpg') center 76% / cover no-repeat; opacity: .84; filter: sepia(.28) saturate(.74) contrast(.94); }
+.rose-backdrop { position: absolute; inset: 0; overflow: hidden; background: #c6a879; opacity: .84; filter: sepia(.28) saturate(.74) contrast(.94); }
+.rose-backdrop img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 76%; }
+.rose-backdrop::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(237,218,177,.9) 0%, rgba(221,192,144,.7) 34%, rgba(121,83,64,.24) 68%, rgba(45,55,38,.45) 100%); }
 .skills-heading { position: relative; z-index: 2; }
 .rose-field { position: relative; z-index: 2; max-width: 1280px; min-height: 720px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; align-items: end; }
 .skill-rose { align-self: end; text-align: center; min-height: var(--rose-height, 440px); display: flex; flex-direction: column; align-items: center; position: relative; }
@@ -365,7 +369,8 @@ footer { min-height: 84svh; display: grid; grid-template-columns: minmax(320px, 
 footer::before, footer::after { content: "★"; position: absolute; color: var(--sun); }
 footer::before { top: 10%; right: 11%; font-size: 1.8rem; }
 footer::after { bottom: 17%; left: 44%; font-size: .9rem; }
-.footer-art { width: 100%; height: min(68svh, 720px); background: url('/little-prince-planet.jpg') 35% center / cover no-repeat; opacity: .92; border: 12px solid #7a5827; outline: 2px solid rgba(218,176,82,.75); outline-offset: -8px; box-shadow: 0 22px 55px rgba(0,0,0,.34), inset 0 0 45px rgba(47,24,18,.28); filter: sepia(.28) saturate(.7) contrast(.96); }
+.footer-art { width: 100%; height: min(68svh, 720px); overflow: hidden; opacity: .92; border: 12px solid #7a5827; outline: 2px solid rgba(218,176,82,.75); outline-offset: -8px; box-shadow: 0 22px 55px rgba(0,0,0,.34), inset 0 0 45px rgba(47,24,18,.28); filter: sepia(.28) saturate(.7) contrast(.96); }
+.footer-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 35% center; }
 .footer-copy { max-width: 740px; }
 .footer-copy .chapter { color: #efc44b; }
 .footer-copy h2 { font-family: "STKaiti", "KaiTi", "Songti SC", serif; font-size: clamp(2.3rem, 4.8vw, 4.8rem); font-weight: 700; line-height: 1.22; margin: 1rem 0 1.5rem; text-shadow: 0 2px 12px rgba(0,0,0,.42); }

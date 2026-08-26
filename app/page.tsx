@@ -399,7 +399,9 @@ export default function Home() {
         <div className="comic-grid">
           {projects.map((project, index) => (
             <article className={`project-panel panel-${index + 1}`} key={project.title}>
-              <div className="panel-art" style={{ backgroundImage: `linear-gradient(180deg, transparent 25%, rgba(22,24,39,.82) 100%), url(${project.image})` }}>
+              <div className="panel-art">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="panel-image" src={project.image} alt="" loading="lazy" decoding="async" aria-hidden="true" />
                 <span className="project-no">{project.no}</span>
                 <p>{project.type}</p>
               </div>
@@ -423,7 +425,10 @@ export default function Home() {
       </section>
 
       <section className="skills-section" id="skills">
-        <div className="rose-backdrop" aria-hidden="true" />
+        <div className="rose-backdrop" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="rose-garden.jpg" alt="" loading="lazy" decoding="async" />
+        </div>
         <div className="section-heading skills-heading">
           <p className="chapter">CHAPTER III · CAPABILITY GARDEN</p>
           <h2>我的能力不是一棵孤立的树，而是一片相互供养的玫瑰花田</h2>
@@ -443,7 +448,10 @@ export default function Home() {
       </section>
 
       <footer id="contact">
-        <div className="footer-art" role="img" aria-label="小王子站在星球上，身边是星星与行星" />
+        <div className="footer-art" role="img" aria-label="小王子站在星球上，身边是星星与行星">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="little-prince-planet.jpg" alt="" loading="lazy" decoding="async" />
+        </div>
         <div className="footer-copy">
           <p className="chapter">LAST PAGE · CONTACT</p>
           <h2>如果你对我的经历感兴趣/正在尝试打造AI-Native的工作方式，欢迎来畅聊🤝</h2>
